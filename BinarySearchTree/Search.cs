@@ -18,6 +18,7 @@ namespace BinarySearchTree
             this.right = null;
         }
         int leftCount = 0, rightCount = 0;
+        bool result = false;
         public void InsertNode(T item)
         {
             T current = this.NodeData;
@@ -56,6 +57,31 @@ namespace BinarySearchTree
                 this.rightCount++;
                 this.right.Display();
             }
+        }
+        public void GetSize()
+        {
+            Console.WriteLine("Size of the tree is :"+(1+this.leftCount + this.rightCount));
+        }
+
+        public bool Exist(T value, SearchTree<T> node)
+        {
+            if(node == null)
+            {
+                return false;
+            }
+            if(node.NodeData.Equals(value))
+            {
+                result = true;
+            }
+            if(value.CompareTo(node.NodeData)<0)
+            {
+                Exist(value, node.left);
+            }
+            if(value.CompareTo(node.NodeData)> 0)
+            {
+                Exist(value, node.right);
+            }
+            return result;
         }
     }
 }
