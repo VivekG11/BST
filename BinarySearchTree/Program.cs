@@ -12,6 +12,7 @@ namespace BinarySearchTree
             search.InsertNode(30);
             search.InsertNode(70);
             search.Display();
+            search.GetSize();
             Console.ReadLine();
         }
     }
